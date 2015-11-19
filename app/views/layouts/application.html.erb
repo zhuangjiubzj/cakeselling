@@ -21,6 +21,7 @@ To start, we will enhance the HTML structure in the site layout file - applicati
         <div class="container">
           <%= yield %>
           <%= render 'layouts/footer' %> 
+          <%= debug(params) if Rails.env.development? %>
         </div>
       </body>
     </html>
