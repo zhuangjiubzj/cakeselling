@@ -1,9 +1,4 @@
-Web site layout and styling.
-Site navigation.
-
-To start, we will enhance the HTML structure in the site layout file - application.html.erb. Replace the file's current content with the code below:
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html>
       <head>
         <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
@@ -18,7 +13,9 @@ To start, we will enhance the HTML structure in the site layout file - applicati
       </head>
       <body>
         <%= render 'layouts/header' %>
-        <div class="container">
+        <div class="container">% flash.each do |message_type, message| %>   
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>                                      
           <%= yield %>
           <%= render 'layouts/footer' %> 
           <%= debug(params) if Rails.env.development? %>
