@@ -11,7 +11,8 @@ class UsersController < ApplicationController
        secure_params = params.require(:user).permit(:name, :email, :password, :password_confirmation)
        @user = User.new(params[:user])
         if @user.save
-        flash[:success] = "Welcome to the Twitter App!"
+        remember @user
+        flash[:success] = "Welcome to the Sample App!"
         redirect_to @user
         else
         render 'new' 
